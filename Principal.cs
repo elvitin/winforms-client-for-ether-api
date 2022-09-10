@@ -1,21 +1,12 @@
+using AppForm.Entidades;
+
 namespace AppForm
 {
-  public partial class Form1 : Form
+  public partial class Principal : Form
   {
-    public Form1()
+    public Principal()
     {
       InitializeComponent();
-    }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-      
-        }
-
-
-    private void Form1_Load(object sender, EventArgs e)
-    {
-
     }
 
     private void clienteToolStripMenuItem_Click(object sender, EventArgs e)
@@ -26,7 +17,8 @@ namespace AppForm
 
     private void clienteToolStripMenuItem1_Click(object sender, EventArgs e)
     {
-
+      ListarClientes l = new ListarClientes();
+      l.ShowDialog();
     }
   }
 }

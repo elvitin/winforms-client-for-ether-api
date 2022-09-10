@@ -1,6 +1,6 @@
 ﻿namespace AppForm
 {
-  partial class Form1
+  partial class Principal
   {
     /// <summary>
     ///  Required designer variable.
@@ -61,14 +61,14 @@
       // clienteToolStripMenuItem
       // 
       this.clienteToolStripMenuItem.Name = "clienteToolStripMenuItem";
-      this.clienteToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+      this.clienteToolStripMenuItem.Size = new System.Drawing.Size(145, 26);
       this.clienteToolStripMenuItem.Text = "Cliente";
       this.clienteToolStripMenuItem.Click += new System.EventHandler(this.clienteToolStripMenuItem_Click);
       // 
       // produtoToolStripMenuItem
       // 
       this.produtoToolStripMenuItem.Name = "produtoToolStripMenuItem";
-      this.produtoToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+      this.produtoToolStripMenuItem.Size = new System.Drawing.Size(145, 26);
       this.produtoToolStripMenuItem.Text = "Produto";
       // 
       // listarToolStripMenuItem
@@ -82,7 +82,7 @@
       // clienteToolStripMenuItem1
       // 
       this.clienteToolStripMenuItem1.Name = "clienteToolStripMenuItem1";
-      this.clienteToolStripMenuItem1.Size = new System.Drawing.Size(224, 26);
+      this.clienteToolStripMenuItem1.Size = new System.Drawing.Size(138, 26);
       this.clienteToolStripMenuItem1.Text = "Cliente";
       this.clienteToolStripMenuItem1.Click += new System.EventHandler(this.clienteToolStripMenuItem1_Click);
       // 
@@ -97,8 +97,7 @@
       this.MaximizeBox = false;
       this.Name = "Form1";
       this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-      this.Text = "Form1";
-      this.Load += new System.EventHandler(this.Form1_Load);
+      this.Text = "Bem Vindo!";
       this.menuStrip1.ResumeLayout(false);
       this.menuStrip1.PerformLayout();
       this.ResumeLayout(false);
