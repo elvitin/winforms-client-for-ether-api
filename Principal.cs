@@ -11,8 +11,8 @@ namespace AppForm
 
     private void clienteToolStripMenuItem_Click(object sender, EventArgs e)
     {
-      CadCliente cliente = new CadCliente();
-      cliente.ShowDialog();
+            ListarClientes lil = new ListarClientes();
+            lil.ShowDialog();
     }
 
     private void clienteToolStripMenuItem1_Click(object sender, EventArgs e)

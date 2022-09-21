@@ -14,10 +14,27 @@ namespace AppForm
 {
   public partial class ListarClientes : Form
   {
+
+        public bool pesquisando = true;
     public ListarClientes()
     {
       InitializeComponent();
     }
+
+        //PROCURA FETCH
+        public void UpdateLoading()
+        {
+            if (pesquisando)
+            {
+                toolStripProgressBar1.Visible = true;
+                toolStripStatusLabel1.Text = "Pesquisando...";
+            }
+            else
+            {
+                toolStripProgressBar1.Visible = false;
+                toolStripStatusLabel1.Text = "";
+            }
+        }
 
     private void button1_Click(object sender, EventArgs e)
     {
@@ -40,6 +57,8 @@ namespace AppForm
 
     private async void ObterTodos()
     {
+            pesquisando = true;
+            UpdateLoading();
       //string endPoint = "https://gorest.co.in/public/v2/users";
 
       //string endPoint = "https://api.publicapis.org/entries";
@@ -54,9 +73,13 @@ namespace AppForm
         //MessageBox.Show(jsonString);
         //TodosClientesDataGridView.DataSource = JsonConvert.DeserializeObject<Cliente[]>(jsonString).ToList();
         TodosClientesDataGridView.DataSource = JsonConvert.DeserializeObject(jsonString);
+                pesquisando = false;
+                UpdateLoading();
         
       } else {
         MessageBox.Show("Deu errado men!");
+                pesquisando = false;
+                UpdateLoading();
       }
     }
 
@@ -78,5 +101,11 @@ namespace AppForm
       
       form.Show();
     }
-  }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            CadCliente cli = new CadCliente();
+            cli.ShowDialog();
+        }
+    }
 }
