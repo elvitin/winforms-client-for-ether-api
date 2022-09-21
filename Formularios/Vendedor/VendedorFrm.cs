@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace AppForm
+namespace AppForm.Formularios.Vendedor
 {
-  public partial class CadProduto : Form
+  public partial class Vendedor_Frm : Form
   {
-    public CadProduto()
+    public Vendedor_Frm()
     {
       InitializeComponent();
     }
