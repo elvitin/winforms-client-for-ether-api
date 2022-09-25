@@ -19,7 +19,8 @@ namespace AppForm.Formularios.Venda
 
     private void SelecionarCliente_Btn_Click(object sender, EventArgs e)
     {
-
+      ListaClientes_Frm lista_clientes_frm = new();
+      lista_clientes_frm.ShowDialog();
     }
   }
 }

@@ -1,10 +1,11 @@
 ﻿using Newtonsoft.Json;
+using ProjetoEngenhariaIII.Control;
+using ProjetoEngenhariaIII.Models.Cliente;
 
 namespace AppForm
 {
   public partial class ListaClientes_Frm : Form
   {
-
     public bool pesquisando = true;
     public ListaClientes_Frm()
     {
@@ -24,69 +25,90 @@ namespace AppForm
       {
         TSPBar.Visible = false;
         TSSLabel.Text = "";
-        TodosClientes_DataGridView.Cursor = Cursors.WaitCursor;
+        TodosClientes_DataGridView.Cursor = Cursors.Default;
       }
     }
 
-
-
-    private void TodosClientes_CellContentClick(object sender, DataGridViewCellEventArgs e)
-    {
-
-    }
 
     private void ListarClientes_Load(object sender, EventArgs e)
     {
       ObterTodos();
     }
 
-
-    private async void ObterTodos()
+    private void DeserializarClientes(string json)
     {
-      pesquisando = true;
-      UpdateLoading();
-      //string endPoint = "https://gorest.co.in/public/v2/users";
-
-      //string endPoint = "https://api.publicapis.org/entries";
-
-      string endPoint = "https://gorest.co.in/public/v2/comments";
-      var cliente = new HttpClient();
-      var resposta = await cliente.GetAsync(endPoint);
-
-      if (resposta.IsSuccessStatusCode)
+      List<Cliente> clientes = JsonConvert.DeserializeObject<List<Cliente>>(json);
+      //R
+      foreach (var cliente in clientes)
       {
-        string jsonString = await resposta.Content.ReadAsStringAsync();
-        //MessageBox.Show(jsonString);
-        //TodosClientesDataGridView.DataSource = JsonConvert.DeserializeObject<Cliente[]>(jsonString).ToList();
-        TodosClientes_DataGridView.DataSource = JsonConvert.DeserializeObject(jsonString);
-        pesquisando = false;
-        UpdateLoading();
+        object[] tupla = new object[8];
+        int index = 0;
+        tupla[index++] = cliente.Id;
+        tupla[index++] = cliente.Nome;
+        tupla[index++] = cliente.Email;
+        tupla[index++] = cliente.Fone;
+        tupla[index++] = cliente.TipoPessoa;
 
+        if (cliente.TipoPessoa.Equals("F"))
+        {
+          tupla[index++] = cliente.Fisica.Cpf;
+          tupla[index++] = cliente.Fisica.Rg;
+          tupla[index++] = cliente.Fisica.Sexo;
+        }
+        else
+        {
+          tupla[index++] = cliente.Juridica.Cnpj;
+          tupla[index++] = cliente.Juridica.InscEstadual;
+          tupla[index++] = cliente.Juridica.InscMunicipal;
+        }
+        TodosClientes_DataGridView.Rows.Add(tupla);
       }
-      else
-      {
-        _ = MessageBox.Show("Um erro ocorreu!");
-        pesquisando = false;
-        UpdateLoading();
-      }
+    }
+
+    private void LimpaLista()
+    {
+      TodosClientes_DataGridView.Rows.Clear();
+    }
+
+    private void ObterTodos()
+    {
+      ClienteControl clienteControl = new();
+      string json = clienteControl.ObterTodos();
+      LimpaLista();
+      DeserializarClientes(json);
     }
 
     private void TodosClientesDataGridView_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
     {
-      Cliente_Frm form = new(
-        TodosClientes_DataGridView.Rows[e.RowIndex].Cells[0].Value.ToString(),
-        TodosClientes_DataGridView.Rows[e.RowIndex].Cells[1].Value.ToString(),
-        TodosClientes_DataGridView.Rows[e.RowIndex].Cells[2].Value.ToString(),
-        TodosClientes_DataGridView.Rows[e.RowIndex].Cells[3].Value.ToString(),
-        "Atualizar"
-      );
-      form.Show();
+      if (e.RowIndex < 0) return;
+      DataGridViewRow row = TodosClientes_DataGridView.Rows[e.RowIndex];
+      Cliente_Frm form = new(row);
+      form.ShowDialog();
+      ObterTodos();
     }
 
     private void NovoCliente_Btn_Click(object sender, EventArgs e)
     {
       Cliente_Frm cli = new();
       cli.ShowDialog();
+      ObterTodos();
+    }
+
+    private void Deletar_Btn_Click(object sender, EventArgs e)
+    {
+      ClienteControl clienteControl = new();
+      DataGridViewSelectedRowCollection rows = TodosClientes_DataGridView.SelectedRows;
+      if (rows.Count == 0) return;
+      if (rows.Count > 1)
+      {
+        MessageBox.Show("Selecione apenas uma linha!");
+        return;
+      }
+      
+      int id = int.Parse(rows[0].Cells[0].Value.ToString());
+      if (!clienteControl.Excluir(id))
+        MessageBox.Show("Falha ao deletar!");
+      ObterTodos();
     }
   }
 }

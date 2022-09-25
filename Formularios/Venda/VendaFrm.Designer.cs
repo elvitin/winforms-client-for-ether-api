@@ -28,8 +28,6 @@
     /// </summary>
     private void InitializeComponent()
     {
-      this.IdVenda_Label = new System.Windows.Forms.Label();
-      this.IdVenda_TxtBox = new System.Windows.Forms.TextBox();
       this.ExcluirVenda_Btn = new System.Windows.Forms.Button();
       this.NovaVenda_Btn = new System.Windows.Forms.Button();
       this.SalvarVenda_Btn = new System.Windows.Forms.Button();
@@ -56,23 +54,6 @@
       this.Desconto_Label = new System.Windows.Forms.Label();
       ((System.ComponentModel.ISupportInitialize)(this.ProdutoPdv_DataGridView)).BeginInit();
       this.SuspendLayout();
-      // 
-      // IdVenda_Label
-      // 
-      this.IdVenda_Label.AutoSize = true;
-      this.IdVenda_Label.Location = new System.Drawing.Point(12, 47);
-      this.IdVenda_Label.Name = "IdVenda_Label";
-      this.IdVenda_Label.Size = new System.Drawing.Size(62, 15);
-      this.IdVenda_Label.TabIndex = 0;
-      this.IdVenda_Label.Text = "ID VENDA:";
-      // 
-      // IdVenda_TxtBox
-      // 
-      this.IdVenda_TxtBox.Enabled = false;
-      this.IdVenda_TxtBox.Location = new System.Drawing.Point(12, 65);
-      this.IdVenda_TxtBox.Name = "IdVenda_TxtBox";
-      this.IdVenda_TxtBox.Size = new System.Drawing.Size(100, 23);
-      this.IdVenda_TxtBox.TabIndex = 1;
       // 
       // ExcluirVenda_Btn
       // 
@@ -113,7 +94,7 @@
       // DataVenda_TxtBox
       // 
       this.DataVenda_TxtBox.Enabled = false;
-      this.DataVenda_TxtBox.Location = new System.Drawing.Point(118, 65);
+      this.DataVenda_TxtBox.Location = new System.Drawing.Point(12, 69);
       this.DataVenda_TxtBox.Name = "DataVenda_TxtBox";
       this.DataVenda_TxtBox.Size = new System.Drawing.Size(100, 23);
       this.DataVenda_TxtBox.TabIndex = 7;
@@ -121,7 +102,7 @@
       // DataVenda_Label
       // 
       this.DataVenda_Label.AutoSize = true;
-      this.DataVenda_Label.Location = new System.Drawing.Point(118, 47);
+      this.DataVenda_Label.Location = new System.Drawing.Point(12, 51);
       this.DataVenda_Label.Name = "DataVenda_Label";
       this.DataVenda_Label.Size = new System.Drawing.Size(79, 15);
       this.DataVenda_Label.TabIndex = 6;
@@ -210,6 +191,7 @@
       // ProdutoPdv_DataGridView
       // 
       this.ProdutoPdv_DataGridView.AllowUserToOrderColumns = true;
+      this.ProdutoPdv_DataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
       this.ProdutoPdv_DataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
       this.ProdutoPdv_DataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.IdProduto,
@@ -226,34 +208,39 @@
       // 
       // IdProduto
       // 
+      this.IdProduto.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+      this.IdProduto.Frozen = true;
       this.IdProduto.HeaderText = "ID PRODUTO";
       this.IdProduto.MinimumWidth = 6;
       this.IdProduto.Name = "IdProduto";
-      this.IdProduto.Width = 125;
+      this.IdProduto.Width = 91;
       // 
       // NomeProduto
       // 
+      this.NomeProduto.Frozen = true;
       this.NomeProduto.HeaderText = "NOME PRODUTO";
       this.NomeProduto.MinimumWidth = 6;
       this.NomeProduto.Name = "NomeProduto";
       this.NomeProduto.ReadOnly = true;
-      this.NomeProduto.Width = 125;
+      this.NomeProduto.Width = 113;
       // 
       // Qtde
       // 
+      this.Qtde.Frozen = true;
       this.Qtde.HeaderText = "QTDE";
       this.Qtde.MinimumWidth = 6;
       this.Qtde.Name = "Qtde";
       this.Qtde.ReadOnly = true;
-      this.Qtde.Width = 125;
+      this.Qtde.Width = 60;
       // 
       // Preco
       // 
+      this.Preco.Frozen = true;
       this.Preco.HeaderText = "PRECO";
       this.Preco.MinimumWidth = 6;
       this.Preco.Name = "Preco";
       this.Preco.ReadOnly = true;
-      this.Preco.Width = 125;
+      this.Preco.Width = 69;
       // 
       // ValorTotal_TxtBox
       // 
@@ -315,8 +302,6 @@
       this.Controls.Add(this.SalvarVenda_Btn);
       this.Controls.Add(this.NovaVenda_Btn);
       this.Controls.Add(this.ExcluirVenda_Btn);
-      this.Controls.Add(this.IdVenda_TxtBox);
-      this.Controls.Add(this.IdVenda_Label);
       this.MaximizeBox = false;
       this.Name = "Venda_Frm";
       this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
@@ -328,9 +313,6 @@
     }
 
         #endregion
-
-        private Label IdVenda_Label;
-        private TextBox IdVenda_TxtBox;
         private Button ExcluirVenda_Btn;
         private Button NovaVenda_Btn;
         private Button SalvarVenda_Btn;
@@ -347,13 +329,13 @@
         private TextBox IdVendedor_TxtBox;
         private Label IdVendedor_Label;
         private DataGridView ProdutoPdv_DataGridView;
-        private DataGridViewTextBoxColumn IdProduto;
-        private DataGridViewTextBoxColumn NomeProduto;
-        private DataGridViewTextBoxColumn Qtde;
-        private DataGridViewTextBoxColumn Preco;
         private TextBox ValorTotal_TxtBox;
         private Label ValorTotal_Label;
         private TextBox Desconto_TxtBox;
         private Label Desconto_Label;
+        private DataGridViewTextBoxColumn IdProduto;
+        private DataGridViewTextBoxColumn NomeProduto;
+        private DataGridViewTextBoxColumn Qtde;
+        private DataGridViewTextBoxColumn Preco;
     }
 }

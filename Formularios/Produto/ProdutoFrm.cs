@@ -1,4 +1,4 @@
-﻿using AppForm.Entidades.Produto;
+﻿using ProjetoEngenhariaIII.Models.Produto;
 
 namespace AppForm.Formularios.Produto
 {

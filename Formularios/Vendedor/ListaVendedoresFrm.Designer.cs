@@ -38,43 +38,50 @@
       // 
       // BuscaVendedor_Btn
       // 
-      this.BuscaVendedor_Btn.Location = new System.Drawing.Point(605, 11);
+      this.BuscaVendedor_Btn.Location = new System.Drawing.Point(691, 15);
+      this.BuscaVendedor_Btn.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
       this.BuscaVendedor_Btn.Name = "BuscaVendedor_Btn";
-      this.BuscaVendedor_Btn.Size = new System.Drawing.Size(75, 23);
+      this.BuscaVendedor_Btn.Size = new System.Drawing.Size(86, 31);
       this.BuscaVendedor_Btn.TabIndex = 0;
       this.BuscaVendedor_Btn.Text = "Buscar";
       this.BuscaVendedor_Btn.UseVisualStyleBackColor = true;
       // 
       // BuscaVendedor_TxtBox
       // 
-      this.BuscaVendedor_TxtBox.Location = new System.Drawing.Point(12, 12);
+      this.BuscaVendedor_TxtBox.Location = new System.Drawing.Point(14, 16);
+      this.BuscaVendedor_TxtBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
       this.BuscaVendedor_TxtBox.Name = "BuscaVendedor_TxtBox";
-      this.BuscaVendedor_TxtBox.Size = new System.Drawing.Size(587, 23);
+      this.BuscaVendedor_TxtBox.Size = new System.Drawing.Size(670, 27);
       this.BuscaVendedor_TxtBox.TabIndex = 1;
       // 
       // ListaVendedoresDataGridView
       // 
       this.ListaVendedoresDataGridView.AllowUserToOrderColumns = true;
       this.ListaVendedoresDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-      this.ListaVendedoresDataGridView.Location = new System.Drawing.Point(12, 41);
+      this.ListaVendedoresDataGridView.Location = new System.Drawing.Point(14, 55);
+      this.ListaVendedoresDataGridView.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
       this.ListaVendedoresDataGridView.Name = "ListaVendedoresDataGridView";
-      this.ListaVendedoresDataGridView.Size = new System.Drawing.Size(776, 218);
+      this.ListaVendedoresDataGridView.RowHeadersWidth = 51;
+      this.ListaVendedoresDataGridView.Size = new System.Drawing.Size(887, 291);
       this.ListaVendedoresDataGridView.TabIndex = 2;
       // 
       // ExcluirVendedor_Btn
       // 
-      this.ExcluirVendedor_Btn.Location = new System.Drawing.Point(713, 265);
+      this.ExcluirVendedor_Btn.Location = new System.Drawing.Point(815, 353);
+      this.ExcluirVendedor_Btn.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
       this.ExcluirVendedor_Btn.Name = "ExcluirVendedor_Btn";
-      this.ExcluirVendedor_Btn.Size = new System.Drawing.Size(75, 23);
+      this.ExcluirVendedor_Btn.Size = new System.Drawing.Size(86, 31);
       this.ExcluirVendedor_Btn.TabIndex = 3;
       this.ExcluirVendedor_Btn.Text = "Excluir";
       this.ExcluirVendedor_Btn.UseVisualStyleBackColor = true;
+      this.ExcluirVendedor_Btn.Click += new System.EventHandler(this.ExcluirVendedor_Btn_Click);
       // 
       // NovoVendedor_Btn
       // 
-      this.NovoVendedor_Btn.Location = new System.Drawing.Point(686, 11);
+      this.NovoVendedor_Btn.Location = new System.Drawing.Point(784, 15);
+      this.NovoVendedor_Btn.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
       this.NovoVendedor_Btn.Name = "NovoVendedor_Btn";
-      this.NovoVendedor_Btn.Size = new System.Drawing.Size(102, 23);
+      this.NovoVendedor_Btn.Size = new System.Drawing.Size(117, 31);
       this.NovoVendedor_Btn.TabIndex = 4;
       this.NovoVendedor_Btn.Text = "Novo vendedor";
       this.NovoVendedor_Btn.UseVisualStyleBackColor = true;
@@ -82,14 +89,15 @@
       // 
       // ListaVendedores_Frm
       // 
-      this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+      this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-      this.ClientSize = new System.Drawing.Size(800, 291);
+      this.ClientSize = new System.Drawing.Size(914, 485);
       this.Controls.Add(this.BuscaVendedor_TxtBox);
       this.Controls.Add(this.BuscaVendedor_Btn);
       this.Controls.Add(this.NovoVendedor_Btn);
       this.Controls.Add(this.ListaVendedoresDataGridView);
       this.Controls.Add(this.ExcluirVendedor_Btn);
+      this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
       this.MaximizeBox = false;
       this.Name = "ListaVendedores_Frm";
       this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;

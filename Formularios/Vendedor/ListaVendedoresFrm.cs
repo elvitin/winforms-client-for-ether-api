@@ -17,5 +17,10 @@
       Vendedor_Frm vendedor_frm = new();
       vendedor_frm.ShowDialog();
     }
-  }
+
+    private void ExcluirVendedor_Btn_Click(object sender, EventArgs e)
+    {
+
+    }
+  } 
 }

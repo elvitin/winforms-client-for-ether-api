@@ -1,18 +1,30 @@
-﻿using AppForm.Entidades.Cliente;
+﻿using ProjetoEngenhariaIII.Models.Cliente;
 using Newtonsoft.Json;
-using System.Text;
+using ProjetoEngenhariaIII.Control;
 
 namespace AppForm
 {
   public partial class Cliente_Frm : Form
   {
     bool TpClienteEstado = true;
+    bool UpdateState = false;
+    int ultimoID = 0;
 
     public Cliente_Frm()
     {
       InitializeComponent();
     }
 
+    public Cliente_Frm(DataGridViewRow row)
+    {
+      UpdateState = true;
+      InitializeComponent();
+      PesFis_RadioBtn.Enabled = false;
+      PesJur_RadioBtn.Enabled = false;
+      Ok_Btn.Text = "Atualizar";
+      SerializaCliente(row);
+    }
+    
     public Cliente_Frm(string identificador, string nome, string email, string telefone, string okBtnMsg)
     {
       InitializeComponent();
@@ -28,11 +40,37 @@ namespace AppForm
       PesFis_RadioBtn.Checked = true;
     }
 
+    private void SerializaCliente(DataGridViewRow row)
+    {
+      ultimoID = int.Parse(row.Cells[0].Value.ToString());
+      Nome_TxtBox.Text = (string)row.Cells[1].Value;
+      Email_TxtBox.Text = (string)row.Cells[2].Value;
+      Telefone_TxtBox.Text = (string)row.Cells[3].Value;
+          
+      if (row.Cells[4].Value.ToString().Equals("F"))
+      {
+        TrocaContextoPessoa(PesJur_Panel, PesFis_Panel);
+
+        Cpf_TxtBox.Text = (string)row.Cells[5].Value;
+        Rg_TxtBox.Text = (string)row.Cells[6].Value;
+        bool sexo = ((string)row.Cells[7].Value).ToString().Equals("M");
+        SexoM_RadioBtn.Checked = sexo;
+        SexoF_RadioBtn.Checked = !sexo;
+      } 
+      else
+      {
+        TrocaContextoPessoa(PesFis_Panel, PesJur_Panel);
+        Cnpj_mTxtBox.Text = (string)row.Cells[5].Value;
+        InscEst_TxtBox.Text = (string)row.Cells[6].Value;
+        InscMuni_TxtBox.Text = (string)row.Cells[7].Value;
+      }
+    }
+
     private Cliente ObtemClienteFormulario()
     {
       Cliente cliente = new()
       {
-        Id = 0,
+        Id = ultimoID,
         Nome = Nome_TxtBox.Text,
         Email = Email_TxtBox.Text,
         Fone = Telefone_TxtBox.Text
@@ -40,24 +78,24 @@ namespace AppForm
 
       if (PesFis_RadioBtn.Checked)
       {
-        cliente.TipoPessoa = 'F';
+        cliente.TipoPessoa = "F";
         cliente.Fisica = new()
         {
-          Cpf = Int64.Parse(Cpf_TxtBox.Text),
-          Rg = Int64.Parse(Rg_TxtBox.Text),
-          Sexo = SexoM_RadioBtn.Checked ? 'M' : 'F',
-          ClienteId = 0
+          Cpf = Cpf_TxtBox.Text,
+          Rg = Rg_TxtBox.Text,
+          Sexo = SexoM_RadioBtn.Checked ? "M" : "F",
+          ClienteId = ultimoID
         };
       }
       else
       {
-        cliente.TipoPessoa = 'J';
+        cliente.TipoPessoa = "J";
         cliente.Juridica = new()
         {
-          Cnpj = Int64.Parse(Cnpj_mTxtBox.Text),
-          InscEstadual = Int64.Parse(InscEst_TxtBox.Text),
-          InscMunicipal = Int64.Parse(InscMuni_TxtBox.Text),
-          ClienteId = 0
+          Cnpj = Cnpj_mTxtBox.Text,
+          InscEstadual = InscEst_TxtBox.Text,
+          InscMunicipal = InscMuni_TxtBox.Text,
+          ClienteId = ultimoID
         };
       }
       return cliente;
@@ -66,21 +104,15 @@ namespace AppForm
     private async void SalvarCliente()
     {
       Cliente cliente = ObtemClienteFormulario();
+      string clienteSerializado = JsonConvert.SerializeObject(cliente, Formatting.Indented, new JsonSerializerSettings { NullValueHandling = NullValueHandling.Ignore });
+      MessageBox.Show(clienteSerializado);
+      ClienteControl clienteControl = new();
 
-      using var client = new HttpClient();
-      if (!Ok_Btn.Text.Equals("Atualizar"))
+      if(!clienteControl.Salvar(clienteSerializado))
       {
-        //string createURI = "http://localhost/criarCliente";
-        var clienteSerializado = JsonConvert.SerializeObject(cliente, Formatting.Indented, new JsonSerializerSettings { NullValueHandling = NullValueHandling.Ignore, });
-        MessageBox.Show(clienteSerializado);
-        //var conteudo = new StringContent(clienteSerializado, Encoding.UTF8, "application/json");
-        //MessageBox.Show(conteudo);
-        //var result = await client.PostAsync(createURI, conteudo);
+        MessageBox.Show("Erro!");
       }
-      else
-      {
-        
-      }
+      this.Close();
     }
 
     private static void TrocaContextoPessoa(Panel atual, Panel novo)
@@ -107,12 +139,14 @@ namespace AppForm
       }
     }
 
- 
-
-
     private void Ok_Btn_Click(object sender, EventArgs e)
     {
       SalvarCliente();
+    }
+
+    private void Cancelar_Btn_Click(object sender, EventArgs e)
+    {
+  
     }
   }
 }
