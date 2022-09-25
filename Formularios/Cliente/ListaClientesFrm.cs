@@ -1,6 +1,7 @@
-﻿using Newtonsoft.Json;
-using ProjetoEngenhariaIII.Control;
-using ProjetoEngenhariaIII.Models.Cliente;
+﻿using AppForm.Formularios;
+using Newtonsoft.Json;
+using EtherAPI.Control;
+using EtherAPI.Models.Cliente;
 
 namespace AppForm
 {
@@ -84,6 +85,7 @@ namespace AppForm
       if (e.RowIndex < 0) return;
       DataGridViewRow row = TodosClientes_DataGridView.Rows[e.RowIndex];
       Cliente_Frm form = new(row);
+      
       form.ShowDialog();
       ObterTodos();
     }
@@ -98,18 +100,7 @@ namespace AppForm
     private void Deletar_Btn_Click(object sender, EventArgs e)
     {
       ClienteControl clienteControl = new();
-      DataGridViewSelectedRowCollection rows = TodosClientes_DataGridView.SelectedRows;
-      if (rows.Count == 0) return;
-      if (rows.Count > 1)
-      {
-        MessageBox.Show("Selecione apenas uma linha!");
-        return;
-      }
-      
-      int id = int.Parse(rows[0].Cells[0].Value.ToString());
-      if (!clienteControl.Excluir(id))
-        MessageBox.Show("Falha ao deletar!");
-      ObterTodos();
+      FormsControl.Excluir(clienteControl, TodosClientes_DataGridView, ObterTodos);
     }
   }
 }

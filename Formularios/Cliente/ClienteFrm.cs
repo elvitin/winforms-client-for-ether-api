@@ -1,6 +1,6 @@
-﻿using ProjetoEngenhariaIII.Models.Cliente;
+﻿using EtherAPI.Models.Cliente;
 using Newtonsoft.Json;
-using ProjetoEngenhariaIII.Control;
+using EtherAPI.Control;
 
 namespace AppForm
 {

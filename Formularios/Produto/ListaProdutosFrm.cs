@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using EtherAPI.Control;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -21,50 +22,43 @@ namespace AppForm.Formularios.Produto
 
     private void NovoCliente_Btn_Click(object sender, EventArgs e)
     {
-      Produto_Frm prodFrm = new Produto_Frm();
+      Produto_Frm prodFrm = new();
       prodFrm.ShowDialog();
 
     }
 
+    private void LimpaLista(DataGridView dgv)
+    {
+      dgv.Rows.Clear();
+    }
+
     private void ListaProdutosFrm_Load(object sender, EventArgs e)
     {
-      ObterTodos();
+      ObterListaProdutos();
     }
 
 
-    private async void ObterTodos()
+    private void ObterListaProdutos()
     {
-      pesquisando = true;
-      UpdateLoading();
-      //string endPoint = "https://gorest.co.in/public/v2/users";
+      UpdateLoading(true);
 
-      //string endPoint = "https://api.publicapis.org/entries";
+      ProdutoControl produtoControl = new();
+      string json = produtoControl.ObterTodos();
+      LimpaLista(TodosProdutos_DataGridView);
+      List<EtherAPI.Models.Produto.Produto> produtos = JsonConvert.DeserializeObject<List<EtherAPI.Models.Produto.Produto>>(json);
 
-      string endPoint = "https://gorest.co.in/public/v2/comments";
-      var cliente = new HttpClient();
-      var resposta = await cliente.GetAsync(endPoint);
-
-      if (resposta.IsSuccessStatusCode)
+      foreach (var produto in produtos)
       {
-        string jsonString = await resposta.Content.ReadAsStringAsync();
-        //MessageBox.Show(jsonString);
-        //TodosClientesDataGridView.DataSource = JsonConvert.DeserializeObject<Cliente[]>(jsonString).ToList();
-        TodosProdutos_DataGridView.DataSource = JsonConvert.DeserializeObject(jsonString);
-        pesquisando = false;
-        UpdateLoading();
-
+        var tupla = new object[] { produto.Id, produto.Nome, produto.Preco, produto.Estoque, produto.Unidade.Nome, produto.Unidade.Id };
+        TodosProdutos_DataGridView.Rows.Add(tupla);
       }
-      else
-      {
-        _ = MessageBox.Show("Um erro ocorreu!");
-        pesquisando = false;
-        UpdateLoading();
-      }
+      UpdateLoading(false);
     }
 
     //PROCURA FETCH
-    public void UpdateLoading()
+    public void UpdateLoading(bool status)
     {
+      pesquisando = status;
       if (pesquisando)
       {
         TSPBar.Visible = true;
@@ -79,15 +73,21 @@ namespace AppForm.Formularios.Produto
       }
     }
 
-    private void OkBuscar_Btn_Click(object sender, EventArgs e)
-    {
-
-    }
-
     private void ListaProdutosFrm_Activated(object sender, EventArgs e)
     {
       //TODO PESQUISA AQUI 
-      ObterTodos();
+      ObterListaProdutos();
+    }
+
+    private void TodosProdutosDataGridView_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+    {
+      MessageBox.Show("ColumnIndex: " + e.ColumnIndex.ToString() + "\nRowIndex" + e.RowIndex.ToString());
+    }
+
+    private void Deletar_Btn_Click(object sender, EventArgs e)
+    {
+      ProdutoControl produtoControl = new();
+      FormsControl.Excluir(produtoControl, TodosProdutos_DataGridView, ObterListaProdutos);
     }
   }
 }

@@ -18,10 +18,12 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Reference Include="ProjetoEngenhariaIII">
-      <HintPath>..\ProjetoEngenhariaIII\ProjetoEngenhariaIII\bin\Debug\net6.0-windows\ProjetoEngenhariaIII.dll</HintPath>
+    <Reference Include="EtherAPI">
+      <HintPath>..\ProjetoEngenhariaIII\EtherAPI\bin\Release\net6.0-windows\EtherAPI.dll</HintPath>
     </Reference>
   </ItemGroup>
+
+
 
   <ItemGroup>
     <Compile Update="Properties\Resources.Designer.cs">

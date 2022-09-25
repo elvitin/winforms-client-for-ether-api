@@ -32,10 +32,13 @@
       this.TSSLabel = new System.Windows.Forms.ToolStripStatusLabel();
       this.TSPBar = new System.Windows.Forms.ToolStripProgressBar();
       this.Deletar_Btn = new System.Windows.Forms.Button();
-      this.Buscar_TxtBox = new System.Windows.Forms.TextBox();
-      this.OkBuscar_Btn = new System.Windows.Forms.Button();
       this.TodosProdutos_DataGridView = new System.Windows.Forms.DataGridView();
-      this.Decoracao_Panel = new System.Windows.Forms.Panel();
+      this.ColumnID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+      this.ColumnNome = new System.Windows.Forms.DataGridViewTextBoxColumn();
+      this.ColumnPreco = new System.Windows.Forms.DataGridViewTextBoxColumn();
+      this.ColumnEstoque = new System.Windows.Forms.DataGridViewTextBoxColumn();
+      this.ColumnUnidade = new System.Windows.Forms.DataGridViewTextBoxColumn();
+      this.ColumnUnidadeID = new System.Windows.Forms.DataGridViewTextBoxColumn();
       this.NovoCliente_Btn = new System.Windows.Forms.Button();
       this.LoadRequesicao_StatusStrip.SuspendLayout();
       ((System.ComponentModel.ISupportInitialize)(this.TodosProdutos_DataGridView)).BeginInit();
@@ -43,82 +46,114 @@
       // 
       // LoadRequesicao_StatusStrip
       // 
+      this.LoadRequesicao_StatusStrip.ImageScalingSize = new System.Drawing.Size(20, 20);
       this.LoadRequesicao_StatusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.TSSLabel,
             this.TSPBar});
-      this.LoadRequesicao_StatusStrip.Location = new System.Drawing.Point(0, 462);
+      this.LoadRequesicao_StatusStrip.Location = new System.Drawing.Point(0, 618);
       this.LoadRequesicao_StatusStrip.Name = "LoadRequesicao_StatusStrip";
-      this.LoadRequesicao_StatusStrip.Size = new System.Drawing.Size(800, 22);
+      this.LoadRequesicao_StatusStrip.Padding = new System.Windows.Forms.Padding(1, 0, 16, 0);
+      this.LoadRequesicao_StatusStrip.Size = new System.Drawing.Size(914, 27);
       this.LoadRequesicao_StatusStrip.TabIndex = 34;
       this.LoadRequesicao_StatusStrip.Text = "Request Load";
       // 
       // TSSLabel
       // 
       this.TSSLabel.Name = "TSSLabel";
-      this.TSSLabel.Size = new System.Drawing.Size(59, 17);
+      this.TSSLabel.Size = new System.Drawing.Size(74, 21);
       this.TSSLabel.Text = "statusText";
       // 
       // TSPBar
       // 
       this.TSPBar.Name = "TSPBar";
-      this.TSPBar.Size = new System.Drawing.Size(100, 16);
+      this.TSPBar.Size = new System.Drawing.Size(114, 19);
       this.TSPBar.Style = System.Windows.Forms.ProgressBarStyle.Marquee;
       // 
       // Deletar_Btn
       // 
-      this.Deletar_Btn.Location = new System.Drawing.Point(707, 432);
-      this.Deletar_Btn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+      this.Deletar_Btn.Location = new System.Drawing.Point(708, 578);
       this.Deletar_Btn.Name = "Deletar_Btn";
-      this.Deletar_Btn.Size = new System.Drawing.Size(82, 22);
+      this.Deletar_Btn.Size = new System.Drawing.Size(94, 31);
       this.Deletar_Btn.TabIndex = 33;
       this.Deletar_Btn.Text = "Excluir";
       this.Deletar_Btn.UseVisualStyleBackColor = true;
-      // 
-      // Buscar_TxtBox
-      // 
-      this.Buscar_TxtBox.Location = new System.Drawing.Point(13, 25);
-      this.Buscar_TxtBox.Name = "Buscar_TxtBox";
-      this.Buscar_TxtBox.Size = new System.Drawing.Size(607, 23);
-      this.Buscar_TxtBox.TabIndex = 32;
-      // 
-      // OkBuscar_Btn
-      // 
-      this.OkBuscar_Btn.Location = new System.Drawing.Point(626, 25);
-      this.OkBuscar_Btn.Name = "OkBuscar_Btn";
-      this.OkBuscar_Btn.Size = new System.Drawing.Size(75, 23);
-      this.OkBuscar_Btn.TabIndex = 31;
-      this.OkBuscar_Btn.Text = "Buscar";
-      this.OkBuscar_Btn.UseVisualStyleBackColor = true;
-      this.OkBuscar_Btn.Click += new System.EventHandler(this.OkBuscar_Btn_Click);
+      this.Deletar_Btn.Click += new System.EventHandler(this.Deletar_Btn_Click);
       // 
       // TodosProdutos_DataGridView
       // 
       this.TodosProdutos_DataGridView.AllowUserToAddRows = false;
       this.TodosProdutos_DataGridView.AllowUserToDeleteRows = false;
       this.TodosProdutos_DataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-      this.TodosProdutos_DataGridView.Location = new System.Drawing.Point(13, 58);
+      this.TodosProdutos_DataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ColumnID,
+            this.ColumnNome,
+            this.ColumnPreco,
+            this.ColumnEstoque,
+            this.ColumnUnidade,
+            this.ColumnUnidadeID});
+      this.TodosProdutos_DataGridView.Location = new System.Drawing.Point(15, 13);
+      this.TodosProdutos_DataGridView.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
       this.TodosProdutos_DataGridView.Name = "TodosProdutos_DataGridView";
       this.TodosProdutos_DataGridView.ReadOnly = true;
       this.TodosProdutos_DataGridView.RowHeadersWidth = 51;
       this.TodosProdutos_DataGridView.RowTemplate.Height = 25;
-      this.TodosProdutos_DataGridView.Size = new System.Drawing.Size(776, 364);
+      this.TodosProdutos_DataGridView.Size = new System.Drawing.Size(887, 549);
       this.TodosProdutos_DataGridView.TabIndex = 30;
+      this.TodosProdutos_DataGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.TodosProdutosDataGridView_CellDoubleClick);
       // 
-      // Decoracao_Panel
+      // ColumnID
       // 
-      this.Decoracao_Panel.BackColor = System.Drawing.Color.LightSkyBlue;
-      this.Decoracao_Panel.Dock = System.Windows.Forms.DockStyle.Top;
-      this.Decoracao_Panel.Location = new System.Drawing.Point(0, 0);
-      this.Decoracao_Panel.Name = "Decoracao_Panel";
-      this.Decoracao_Panel.Size = new System.Drawing.Size(800, 13);
-      this.Decoracao_Panel.TabIndex = 36;
+      this.ColumnID.HeaderText = "ID";
+      this.ColumnID.MinimumWidth = 6;
+      this.ColumnID.Name = "ColumnID";
+      this.ColumnID.ReadOnly = true;
+      this.ColumnID.Width = 125;
+      // 
+      // ColumnNome
+      // 
+      this.ColumnNome.HeaderText = "Nome";
+      this.ColumnNome.MinimumWidth = 6;
+      this.ColumnNome.Name = "ColumnNome";
+      this.ColumnNome.ReadOnly = true;
+      this.ColumnNome.Width = 125;
+      // 
+      // ColumnPreco
+      // 
+      this.ColumnPreco.HeaderText = "Preco";
+      this.ColumnPreco.MinimumWidth = 6;
+      this.ColumnPreco.Name = "ColumnPreco";
+      this.ColumnPreco.ReadOnly = true;
+      this.ColumnPreco.Width = 125;
+      // 
+      // ColumnEstoque
+      // 
+      this.ColumnEstoque.HeaderText = "Estoque";
+      this.ColumnEstoque.MinimumWidth = 6;
+      this.ColumnEstoque.Name = "ColumnEstoque";
+      this.ColumnEstoque.ReadOnly = true;
+      this.ColumnEstoque.Width = 125;
+      // 
+      // ColumnUnidade
+      // 
+      this.ColumnUnidade.HeaderText = "Unidade";
+      this.ColumnUnidade.MinimumWidth = 6;
+      this.ColumnUnidade.Name = "ColumnUnidade";
+      this.ColumnUnidade.ReadOnly = true;
+      this.ColumnUnidade.Width = 125;
+      // 
+      // ColumnUnidadeID
+      // 
+      this.ColumnUnidadeID.HeaderText = "Unidade ID";
+      this.ColumnUnidadeID.MinimumWidth = 6;
+      this.ColumnUnidadeID.Name = "ColumnUnidadeID";
+      this.ColumnUnidadeID.ReadOnly = true;
+      this.ColumnUnidadeID.Width = 125;
       // 
       // NovoCliente_Btn
       // 
-      this.NovoCliente_Btn.Location = new System.Drawing.Point(707, 25);
-      this.NovoCliente_Btn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+      this.NovoCliente_Btn.Location = new System.Drawing.Point(808, 578);
       this.NovoCliente_Btn.Name = "NovoCliente_Btn";
-      this.NovoCliente_Btn.Size = new System.Drawing.Size(82, 23);
+      this.NovoCliente_Btn.Size = new System.Drawing.Size(94, 31);
       this.NovoCliente_Btn.TabIndex = 35;
       this.NovoCliente_Btn.Text = "Novo";
       this.NovoCliente_Btn.UseVisualStyleBackColor = true;
@@ -126,17 +161,15 @@
       // 
       // ListaProdutosFrm
       // 
-      this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+      this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-      this.ClientSize = new System.Drawing.Size(800, 484);
+      this.ClientSize = new System.Drawing.Size(914, 645);
       this.Controls.Add(this.LoadRequesicao_StatusStrip);
       this.Controls.Add(this.Deletar_Btn);
-      this.Controls.Add(this.Buscar_TxtBox);
-      this.Controls.Add(this.OkBuscar_Btn);
       this.Controls.Add(this.TodosProdutos_DataGridView);
-      this.Controls.Add(this.Decoracao_Panel);
       this.Controls.Add(this.NovoCliente_Btn);
       this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+      this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
       this.MaximizeBox = false;
       this.Name = "ListaProdutosFrm";
       this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
@@ -151,16 +184,19 @@
 
     }
 
-        #endregion
+    #endregion
 
-        private StatusStrip LoadRequesicao_StatusStrip;
-        private ToolStripStatusLabel TSSLabel;
-        private ToolStripProgressBar TSPBar;
-        private Button Deletar_Btn;
-        private TextBox Buscar_TxtBox;
-        private Button OkBuscar_Btn;
-        private DataGridView TodosProdutos_DataGridView;
-        private Panel Decoracao_Panel;
-        private Button NovoCliente_Btn;
-    }
+    private StatusStrip LoadRequesicao_StatusStrip;
+    private ToolStripStatusLabel TSSLabel;
+    private ToolStripProgressBar TSPBar;
+    private Button Deletar_Btn;
+    private DataGridView TodosProdutos_DataGridView;
+    private Button NovoCliente_Btn;
+    private DataGridViewTextBoxColumn ColumnID;
+    private DataGridViewTextBoxColumn ColumnNome;
+    private DataGridViewTextBoxColumn ColumnPreco;
+    private DataGridViewTextBoxColumn ColumnEstoque;
+    private DataGridViewTextBoxColumn ColumnUnidade;
+    private DataGridViewTextBoxColumn ColumnUnidadeID;
+  }
 }

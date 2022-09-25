@@ -1,4 +1,4 @@
-﻿using ProjetoEngenhariaIII.Models.Produto;
+﻿using EtherAPI.Models.Produto;
 
 namespace AppForm.Formularios.Produto
 {

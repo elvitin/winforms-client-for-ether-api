@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
-using ProjetoEngenhariaIII.Control;
-using ProjetoEngenhariaIII.Models.Cliente;
+using EtherAPI.Control;
+using EtherAPI.Models.Cliente;
 
 namespace AppForm.Formularios.Vendedor
 {
@@ -32,7 +32,7 @@ namespace AppForm.Formularios.Vendedor
 
     private void SalvarVendedor()
     {
-      ProjetoEngenhariaIII.Models.Vendedor.Vendedor vendedor = new()
+      EtherAPI.Models.Vendedor.Vendedor vendedor = new()
       {
         Id = UltimoID,
         Nome = NomeVendedor_TxtBox.Text

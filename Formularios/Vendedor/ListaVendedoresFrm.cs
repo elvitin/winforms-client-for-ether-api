@@ -1,6 +1,5 @@
-﻿using MySqlX.XDevAPI.Relational;
-using Newtonsoft.Json;
-using ProjetoEngenhariaIII.Control;
+﻿using Newtonsoft.Json;
+using EtherAPI.Control;
 
 namespace AppForm.Formularios.Vendedor
 {
@@ -31,9 +30,9 @@ namespace AppForm.Formularios.Vendedor
     private void ObterListaVendedores()
     {
       VendedorControl vendedorControl = new();
-      string json = vendedorControl.ObterTodos();
+      string json = (string) vendedorControl.ObterTodos();
       LimpaLista();
-      List<ProjetoEngenhariaIII.Models.Vendedor.Vendedor> vendedores = JsonConvert.DeserializeObject<List<ProjetoEngenhariaIII.Models.Vendedor.Vendedor>>(json);
+      List<EtherAPI.Models.Vendedor.Vendedor> vendedores = JsonConvert.DeserializeObject<List<EtherAPI.Models.Vendedor.Vendedor>>(json);
 
       foreach (var vendedor in vendedores)
       {
@@ -53,6 +52,7 @@ namespace AppForm.Formularios.Vendedor
 
     private void ExcluirVendedor_Btn_Click(object sender, EventArgs e)
     {
+      /*
       VendedorControl vendedorControl = new();
       DataGridViewSelectedRowCollection linhas = ListaVendedoresDataGridView.SelectedRows;
       if (linhas.Count == 0) return;
@@ -66,6 +66,10 @@ namespace AppForm.Formularios.Vendedor
       if (!vendedorControl.Excluir(id))
         MessageBox.Show("Falha ao deletar!");
       ObterListaVendedores();
+      */
+
+      VendedorControl vendedorControl = new();
+      FormsControl.Excluir(vendedorControl, ListaVendedoresDataGridView, ObterListaVendedores);
     }
   }
 }

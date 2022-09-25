@@ -47,50 +47,53 @@
       // Nome_Label
       // 
       this.Nome_Label.AutoSize = true;
-      this.Nome_Label.Location = new System.Drawing.Point(8, 6);
+      this.Nome_Label.Location = new System.Drawing.Point(9, 8);
       this.Nome_Label.Name = "Nome_Label";
-      this.Nome_Label.Size = new System.Drawing.Size(43, 15);
+      this.Nome_Label.Size = new System.Drawing.Size(53, 20);
       this.Nome_Label.TabIndex = 0;
       this.Nome_Label.Text = "Nome:";
       // 
       // Nome_TxtBox
       // 
-      this.Nome_TxtBox.Location = new System.Drawing.Point(8, 24);
+      this.Nome_TxtBox.Location = new System.Drawing.Point(9, 32);
+      this.Nome_TxtBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
       this.Nome_TxtBox.Name = "Nome_TxtBox";
-      this.Nome_TxtBox.Size = new System.Drawing.Size(432, 23);
+      this.Nome_TxtBox.Size = new System.Drawing.Size(493, 27);
       this.Nome_TxtBox.TabIndex = 1;
       // 
       // Preco_Label
       // 
       this.Preco_Label.AutoSize = true;
-      this.Preco_Label.Location = new System.Drawing.Point(446, 6);
+      this.Preco_Label.Location = new System.Drawing.Point(510, 8);
       this.Preco_Label.Name = "Preco_Label";
-      this.Preco_Label.Size = new System.Drawing.Size(40, 15);
+      this.Preco_Label.Size = new System.Drawing.Size(49, 20);
       this.Preco_Label.TabIndex = 2;
       this.Preco_Label.Text = "Preco:";
       // 
       // maskedTextBox1
       // 
-      this.maskedTextBox1.Location = new System.Drawing.Point(446, 24);
+      this.maskedTextBox1.Location = new System.Drawing.Point(510, 32);
+      this.maskedTextBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
       this.maskedTextBox1.Mask = "$ 0000.00";
       this.maskedTextBox1.Name = "maskedTextBox1";
-      this.maskedTextBox1.Size = new System.Drawing.Size(96, 23);
+      this.maskedTextBox1.Size = new System.Drawing.Size(109, 27);
       this.maskedTextBox1.TabIndex = 3;
       // 
       // Estoque_Label
       // 
       this.Estoque_Label.AutoSize = true;
-      this.Estoque_Label.Location = new System.Drawing.Point(8, 50);
+      this.Estoque_Label.Location = new System.Drawing.Point(9, 67);
       this.Estoque_Label.Name = "Estoque_Label";
-      this.Estoque_Label.Size = new System.Drawing.Size(86, 15);
+      this.Estoque_Label.Size = new System.Drawing.Size(108, 20);
       this.Estoque_Label.TabIndex = 4;
       this.Estoque_Label.Text = "Estoque Inicial:";
       // 
       // Estoque_Txt_Box
       // 
-      this.Estoque_Txt_Box.Location = new System.Drawing.Point(8, 68);
+      this.Estoque_Txt_Box.Location = new System.Drawing.Point(9, 91);
+      this.Estoque_Txt_Box.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
       this.Estoque_Txt_Box.Name = "Estoque_Txt_Box";
-      this.Estoque_Txt_Box.Size = new System.Drawing.Size(100, 23);
+      this.Estoque_Txt_Box.Size = new System.Drawing.Size(114, 27);
       this.Estoque_Txt_Box.TabIndex = 5;
       // 
       // Unidade_CmbBox
@@ -102,25 +105,27 @@
             "Pacote",
             "Fardo",
             "Item"});
-      this.Unidade_CmbBox.Location = new System.Drawing.Point(114, 68);
+      this.Unidade_CmbBox.Location = new System.Drawing.Point(130, 91);
+      this.Unidade_CmbBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
       this.Unidade_CmbBox.Name = "Unidade_CmbBox";
-      this.Unidade_CmbBox.Size = new System.Drawing.Size(326, 23);
+      this.Unidade_CmbBox.Size = new System.Drawing.Size(372, 28);
       this.Unidade_CmbBox.TabIndex = 6;
       // 
       // Unidade_Label
       // 
       this.Unidade_Label.AutoSize = true;
-      this.Unidade_Label.Location = new System.Drawing.Point(114, 50);
+      this.Unidade_Label.Location = new System.Drawing.Point(130, 67);
       this.Unidade_Label.Name = "Unidade_Label";
-      this.Unidade_Label.Size = new System.Drawing.Size(54, 15);
+      this.Unidade_Label.Size = new System.Drawing.Size(68, 20);
       this.Unidade_Label.TabIndex = 7;
       this.Unidade_Label.Text = "Unidade:";
       // 
       // CadastrarUnidade_Btn
       // 
-      this.CadastrarUnidade_Btn.Location = new System.Drawing.Point(446, 66);
+      this.CadastrarUnidade_Btn.Location = new System.Drawing.Point(510, 88);
+      this.CadastrarUnidade_Btn.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
       this.CadastrarUnidade_Btn.Name = "CadastrarUnidade_Btn";
-      this.CadastrarUnidade_Btn.Size = new System.Drawing.Size(96, 24);
+      this.CadastrarUnidade_Btn.Size = new System.Drawing.Size(110, 32);
       this.CadastrarUnidade_Btn.TabIndex = 8;
       this.CadastrarUnidade_Btn.Text = "Cadastrar Un.";
       this.CadastrarUnidade_Btn.UseVisualStyleBackColor = true;
@@ -129,14 +134,16 @@
       // Categorias_Label
       // 
       this.Categorias_Label.AutoSize = true;
-      this.Categorias_Label.Location = new System.Drawing.Point(8, 94);
+      this.Categorias_Label.Enabled = false;
+      this.Categorias_Label.Location = new System.Drawing.Point(9, 125);
       this.Categorias_Label.Name = "Categorias_Label";
-      this.Categorias_Label.Size = new System.Drawing.Size(66, 15);
+      this.Categorias_Label.Size = new System.Drawing.Size(83, 20);
       this.Categorias_Label.TabIndex = 9;
       this.Categorias_Label.Text = "Categorias:";
       // 
       // Categorias_ChkListBox
       // 
+      this.Categorias_ChkListBox.Enabled = false;
       this.Categorias_ChkListBox.FormattingEnabled = true;
       this.Categorias_ChkListBox.Items.AddRange(new object[] {
             "Limpeza",
@@ -144,16 +151,19 @@
             "Cozinha",
             "Vestuário",
             "Eletrônicos"});
-      this.Categorias_ChkListBox.Location = new System.Drawing.Point(8, 112);
+      this.Categorias_ChkListBox.Location = new System.Drawing.Point(9, 149);
+      this.Categorias_ChkListBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
       this.Categorias_ChkListBox.Name = "Categorias_ChkListBox";
-      this.Categorias_ChkListBox.Size = new System.Drawing.Size(534, 76);
+      this.Categorias_ChkListBox.Size = new System.Drawing.Size(610, 92);
       this.Categorias_ChkListBox.TabIndex = 11;
       // 
       // CadastrarCategoria_Btn
       // 
-      this.CadastrarCategoria_Btn.Location = new System.Drawing.Point(8, 194);
+      this.CadastrarCategoria_Btn.Enabled = false;
+      this.CadastrarCategoria_Btn.Location = new System.Drawing.Point(9, 259);
+      this.CadastrarCategoria_Btn.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
       this.CadastrarCategoria_Btn.Name = "CadastrarCategoria_Btn";
-      this.CadastrarCategoria_Btn.Size = new System.Drawing.Size(135, 23);
+      this.CadastrarCategoria_Btn.Size = new System.Drawing.Size(154, 31);
       this.CadastrarCategoria_Btn.TabIndex = 12;
       this.CadastrarCategoria_Btn.Text = "Cadastrar Categoria";
       this.CadastrarCategoria_Btn.UseVisualStyleBackColor = true;
@@ -161,9 +171,10 @@
       // 
       // SalvarProduto_Btn
       // 
-      this.SalvarProduto_Btn.Location = new System.Drawing.Point(446, 194);
+      this.SalvarProduto_Btn.Location = new System.Drawing.Point(510, 259);
+      this.SalvarProduto_Btn.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
       this.SalvarProduto_Btn.Name = "SalvarProduto_Btn";
-      this.SalvarProduto_Btn.Size = new System.Drawing.Size(96, 23);
+      this.SalvarProduto_Btn.Size = new System.Drawing.Size(110, 31);
       this.SalvarProduto_Btn.TabIndex = 14;
       this.SalvarProduto_Btn.Text = "Salvar";
       this.SalvarProduto_Btn.UseVisualStyleBackColor = true;
@@ -171,9 +182,10 @@
       // 
       // CancelarProduto_Btn
       // 
-      this.CancelarProduto_Btn.Location = new System.Drawing.Point(344, 194);
+      this.CancelarProduto_Btn.Location = new System.Drawing.Point(393, 259);
+      this.CancelarProduto_Btn.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
       this.CancelarProduto_Btn.Name = "CancelarProduto_Btn";
-      this.CancelarProduto_Btn.Size = new System.Drawing.Size(96, 23);
+      this.CancelarProduto_Btn.Size = new System.Drawing.Size(110, 31);
       this.CancelarProduto_Btn.TabIndex = 15;
       this.CancelarProduto_Btn.Text = "Cancelar";
       this.CancelarProduto_Btn.UseVisualStyleBackColor = true;
@@ -181,9 +193,9 @@
       // 
       // Produto_Frm
       // 
-      this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+      this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-      this.ClientSize = new System.Drawing.Size(549, 227);
+      this.ClientSize = new System.Drawing.Size(627, 303);
       this.Controls.Add(this.CancelarProduto_Btn);
       this.Controls.Add(this.SalvarProduto_Btn);
       this.Controls.Add(this.CadastrarCategoria_Btn);
@@ -198,6 +210,7 @@
       this.Controls.Add(this.Nome_Label);
       this.Controls.Add(this.Nome_TxtBox);
       this.Controls.Add(this.Preco_Label);
+      this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
       this.MaximizeBox = false;
       this.Name = "Produto_Frm";
       this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
