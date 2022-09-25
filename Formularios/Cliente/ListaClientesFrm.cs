@@ -11,8 +11,9 @@ namespace AppForm
     {
       InitializeComponent();
     }
-
+    
     //PROCURA FETCH
+    /*
     public void UpdateLoading()
     {
       if (pesquisando)
@@ -28,7 +29,7 @@ namespace AppForm
         TodosClientes_DataGridView.Cursor = Cursors.Default;
       }
     }
-
+    */
 
     private void ListarClientes_Load(object sender, EventArgs e)
     {

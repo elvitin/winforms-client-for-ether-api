@@ -101,16 +101,16 @@ namespace AppForm
       return cliente;
     }
 
-    private async void SalvarCliente()
+    private void SalvarCliente()
     {
       Cliente cliente = ObtemClienteFormulario();
       string clienteSerializado = JsonConvert.SerializeObject(cliente, Formatting.Indented, new JsonSerializerSettings { NullValueHandling = NullValueHandling.Ignore });
-      MessageBox.Show(clienteSerializado);
+      //MessageBox.Show(clienteSerializado);
       ClienteControl clienteControl = new();
 
       if(!clienteControl.Salvar(clienteSerializado))
       {
-        MessageBox.Show("Erro!");
+        MessageBox.Show("Erro ao salvar cliente!");
       }
       this.Close();
     }
